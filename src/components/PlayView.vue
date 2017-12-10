@@ -4,7 +4,7 @@
       <div class="is-child tile box">
         <div class="has-text-centered">
           <h1 class="title">Currently won: <strong>{{ cash }}</strong></h1>
-          <h2 class="subtitle">Round {{currentRound + 1}} of {{questions.length}}</h2>
+          <h2 class="subtitle">Round {{currentRound + 1}} of {{maxRounds}}</h2>
         </div>
       </div>
     </div>
@@ -46,6 +46,7 @@ export default {
       return this.questions[this.currentRound]
     },
     maxRounds: function() {
+      return this.questions.length
     },
     questions: function() {
       return this.exampleQuestions.map((question,index) => ({
@@ -56,6 +57,14 @@ export default {
       )
     }
 
+  },
+  methods: {
+    answerQuestion (index) {
+      if (this.question.currentAnswer === index) {
+        this.cash += this.question.reward
+        this.currentRound += 1
+      }
+    }
   }
   
 }

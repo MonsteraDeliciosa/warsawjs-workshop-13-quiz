@@ -13,9 +13,9 @@
         </router-link>
       </div>
       <div class="column">
-        <button class="button is-fullwidth">
+        <router-link :to="{name: 'settings'}" class="button is-fullwidth">
           Settings
-        </button>
+        </router-link>
       </div>
     </div>
   </div>
